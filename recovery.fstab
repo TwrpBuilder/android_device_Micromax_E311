@@ -14,11 +14,12 @@
 # limitations under the License.
 #
 
-/boot		   emmc		/dev/block/platform/mtk-msdc.0/by-name/boot
-/logo              emmc         /dev/block/platform/mtk-msdc.0/by-name/logo flags=display="Logo";backup=1
-/system		   auto		/dev/block/platform/mtk-msdc.0/by-name/system
-/cache		   ext4		/dev/block/platform/mtk-msdc.0/by-name/cache
-/data		   ext4		/dev/block/platform/mtk-msdc.0/by-name/userdata
-/recovery	   emmc		/dev/block/platform/mtk-msdc.0/by-name/recovery flags=display="Recovery";backup=1;
-/external_sd  	   vfat        	/dev/block/mmcblk1p1 /dev/block/mmcblk1           flags=display="Micro-SD";storage;wipeingui;removable
-/usb_otg           auto         /dev/block/sda1 /dev/block/sda flags=display="USB-OTG";storage;wipeingui;removable
+/boot emmc /dev/bootimg
+/nvram emmc /dev/nvram flags=display="NVRAM";backup=1
+/logo emmc /dev/logo flags=display="Logo";backup=1
+/uboot emmc /dev/uboot flags=display="Uboot";backup=1
+/system	ext4 /dev/block/mmcblk0p5 flags=display="System";wipeingui;backup=1
+/cache ext4 /dev/block/mmcblk0p6 flags=display="Cache";wipeingui;backup=1
+/data ext4 /dev/block/mmcblk0p7
+/recovery emmc /dev/recovery flags=display="Recovery";wipeingui;backup=1
+/external_sd auto /dev/block/mmcblk1p1	/dev/block/mmcblk1 flags=display="External SDcard";storage;wipeingui;removable;backup=0
